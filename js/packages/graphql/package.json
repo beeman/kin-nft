@@ -88,5 +88,8 @@
     "subscriptions-transport-ws": "^0.9.19",
     "typescript-json-serializer": "^3.4.4",
     "winston": "^3.3.3"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
