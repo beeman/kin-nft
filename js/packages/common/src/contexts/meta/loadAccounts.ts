@@ -426,7 +426,7 @@ export const pullPage = async (
         auctionCaches.keys.length,
         ' cached auction data',
       );
-      auctionCaches.keys.map((pubkey, i) => {
+      auctionCaches.keys?.map((pubkey, i) => {
         processMetaplexAccounts(
           {
             pubkey,
