@@ -488,7 +488,7 @@ export const AuctionCreateView = () => {
       tokenMint: attributes.quoteMintAddress,
       gapTickSizePercentage: attributes.tickSizeEndingPhase || null,
       tickSize: attributes.priceTick
-        ? new BN(attributes.priceTick * LAMPORTS_PER_SOL)
+        ? new BN(attributes.priceTick * LAMPORTS_PER_TOKEN)
         : null,
       instantSalePrice: attributes.instantSalePrice
         ? new BN((attributes.instantSalePrice || 0) * LAMPORTS_PER_TOKEN)
@@ -910,7 +910,7 @@ const InstantSaleStep = ({
               setMint={setMint}
               open={showTokenDialog}
               onClose={() => {
-                setShowTokenDialog(false); 
+                setShowTokenDialog(false);
               }}
             />
           </label>
@@ -966,7 +966,7 @@ const CopiesStep = (props: {
   const mintInfo = useTokenList().tokenMap.get((!mint? QUOTE_MINT.toString(): mint.toString()))
 
   props.attributes.quoteMintAddress = mint? mint.toBase58(): QUOTE_MINT.toBase58()
-  
+
   if (props.attributes.quoteMintAddress) {
     props.attributes.quoteMintInfo = useMint(props.attributes.quoteMintAddress)!
     props.attributes.quoteMintInfoExtended = useTokenList().tokenMap.get(props.attributes.quoteMintAddress)!
@@ -1010,7 +1010,7 @@ const CopiesStep = (props: {
           >
             Select NFT
           </ArtSelector>
-              
+
           <label className="action-field">
             <span className="field-title">Auction mint</span>
             <TokenButton mint={mint} onClick={() => setShowTokenDialog(true)} />
@@ -1018,7 +1018,7 @@ const CopiesStep = (props: {
               setMint={setMint}
               open={showTokenDialog}
               onClose={() => {
-                setShowTokenDialog(false); 
+                setShowTokenDialog(false);
               }}
             />
           </label>
@@ -1107,7 +1107,7 @@ const NumberOfWinnersStep = (props: {
               }
             />
           </label>
-              
+
               <label className="action-field">
                 <span className="field-title">Auction mint</span>
                 <span className="field-info">
@@ -1118,7 +1118,7 @@ const NumberOfWinnersStep = (props: {
                   setMint={setMint}
                   open={showTokenDialog}
                   onClose={() => {
-                    setShowTokenDialog(false); 
+                    setShowTokenDialog(false);
                   }}
                 />
               </label>
@@ -1151,10 +1151,10 @@ const PriceAuction = (props: {
       <Row className="call-to-action">
         <h2>Price</h2>
         <p>
-          Set the price for your auction. 
+          Set the price for your auction.
           {props.attributes.quoteMintAddress != WRAPPED_SOL_MINT.toBase58() && ` Warning! the auction quote mint is `}
-          {props.attributes.quoteMintAddress != WRAPPED_SOL_MINT.toBase58()&& <a href={`https://explorer.solana.com/address/${props.attributes?.quoteMintAddress}`} target="_blank"> {props.attributes?.quoteMintAddress != WRAPPED_SOL_MINT.toBase58() && 
-            `${quoteMintName} (${quoteMintExt})`} 
+          {props.attributes.quoteMintAddress != WRAPPED_SOL_MINT.toBase58()&& <a href={`https://explorer.solana.com/address/${props.attributes?.quoteMintAddress}`} target="_blank"> {props.attributes?.quoteMintAddress != WRAPPED_SOL_MINT.toBase58() &&
+            `${quoteMintName} (${quoteMintExt})`}
           </a>}
         </p>
       </Row>
@@ -1191,7 +1191,7 @@ const PriceAuction = (props: {
             <label className="action-field">
               <span className="field-title">Price Floor</span>
               <span className="field-info">
-                This is the starting bid price for your auction. 
+                This is the starting bid price for your auction.
               </span>
               <Input
                 type="number"
